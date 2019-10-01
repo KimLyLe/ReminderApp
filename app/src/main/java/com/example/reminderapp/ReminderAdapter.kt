@@ -32,7 +32,6 @@ RecyclerView.Adapter<ReminderAdapter.ViewHolder>() {
         holder.bind(reminders[position])
     }
 
-
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private val tvReminder: TextView = itemView.findViewById(android.R.id.text1)

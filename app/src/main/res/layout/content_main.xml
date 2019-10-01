@@ -15,17 +15,7 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"/>
-    <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="32dp" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintWidth_percent="0.75" app:layout_constraintHorizontal_bias="0.166">
-
-        <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etReminder"
-                android:layout_height="wrap_content"
-                android:inputType="text" android:hint="@string/give_reminder" android:layout_width="315dp"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.04"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

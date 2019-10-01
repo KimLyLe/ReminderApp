@@ -1,5 +1,6 @@
 package com.example.reminderapp
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,8 +10,10 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_add.*
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.fab
 import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -18,15 +21,18 @@ class MainActivity : AppCompatActivity() {
     private val reminders = arrayListOf<Reminder>()
     private val reminderAdapter = ReminderAdapter(reminders)
 
+    private fun startAddActivity() {
+        val intent = Intent(this, AddActivity::class.java)
+        startActivity(intent)
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            val reminder = etReminder.text.toString()
-            addReminder(reminder)
-        }
+        fab.setOnClickListener { startAddActivity() }
         initViews()
     }
 
@@ -35,9 +41,9 @@ class MainActivity : AppCompatActivity() {
         if (reminder.isNotBlank()) {
             reminders.add(Reminder(reminder))
             reminderAdapter.notifyDataSetChanged()
-            etReminder.text?.clear()
+            etAddReminder.text?.clear()
         } else {
-            Snackbar.make(etReminder, "You must fill in the input field!", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(etAddReminder, "You must fill in the input field!", Snackbar.LENGTH_SHORT).show()
         }
     }
 
